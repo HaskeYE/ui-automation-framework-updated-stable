@@ -18,6 +18,12 @@ public class SearchSteps {
 
     public SearchResultsPageSteps clickSearchIcon() {
         searchSidebar().searchButton().waitUntil(displayed()).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("sleep not good");
+        }
+
         return new SearchResultsPageSteps();
     }
 

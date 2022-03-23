@@ -7,12 +7,15 @@ import tasks.ConfigObjectProvider;
 
 public class OpenPageSteps {
     ConfigObjectProvider cfg = new ConfigObjectProvider();
-    private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
+    private static final MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
 
-    private HomePage homePage() { return pageFactory.on(HomePage.class); } // use .on method of MyPageFactoryProvider
+    //private HomePage homePage() { return pageFactory.on(HomePage.class); } // use .on method of MyPageFactoryProvider
 
     public HomePageSteps openHomepage() {
-        homePage().open("https://www.ae.com/us/en");
+        pageFactory
+                .on(HomePage.class)
+                .open("https://www.ae.com/us/en");
+        System.out.println("page opened");
         return new HomePageSteps();  /*since homepage is opened after opening page, openHomepage() will give you access
          to HomePageSteps*/ }
 }

@@ -20,4 +20,10 @@ public interface RunConfiguration extends Config {
 
     @Key("timeout.settings")
     int timeout();
+
+    @Key("my.email")
+    String email();
+
+    @Key("my.password")
+    String password();
 }

@@ -11,6 +11,8 @@ public class ConfigObjectProvider {
     String seleniumVer;
     String homepageURL;
     int timeout;
+    String myPassword;
+    String myEmail;
 
     public ConfigObjectProvider() {
         RunConfiguration cfgRun = ConfigFactory.create(RunConfiguration.class);
@@ -20,6 +22,9 @@ public class ConfigObjectProvider {
         this.browserWidth = cfgRun.browserWidth();
         this.seleniumVer = cfgRun.seleniumVer();
         this.homepageURL = cfgEnv.homepageURL();
+        this.myEmail = cfgRun.email();
+        this.myPassword = cfgRun.password();
+
 
         this.timeout = cfgRun.timeout();
     }
@@ -43,5 +48,13 @@ public class ConfigObjectProvider {
 
     public String getHomepageURL() {
         return homepageURL;
+    }
+
+    public String getMyEmail() {
+        return myEmail;
+    }
+
+    public String getMyPassword() {
+        return myPassword;
     }
 }

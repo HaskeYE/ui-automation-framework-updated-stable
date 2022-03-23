@@ -6,6 +6,7 @@ import io.qameta.htmlelements.annotation.Description;
 import io.qameta.htmlelements.annotation.FindBy;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface SearchResultsPage extends ExtendedWebPage {
     @Description("Your account icon")
@@ -20,7 +21,7 @@ public interface SearchResultsPage extends ExtendedWebPage {
     @FindBy("//li[@class='utilities-list-item utilities-cart qa-utilities-cart relative']")
     ExtendedMyWebElement cartIcon();
 
-    @Description("Products found by search")
-    @FindBy("//div[@class='product-tile qa-product-tile']")
-    ArrayList<ExtendedMyWebElement> productsListedAfterSearch();
+    @Description("Products found by search header")
+    @FindBy("//div[@class='product-tile qa-product-tile __eadf2 col-md-4 col-xs-6 qa-search-result-item']")
+    List<ExtendedMyWebElement> productsListedAfterSearch();
 }

@@ -6,7 +6,7 @@ import selenium.WebDriverFactoryProvider;
 import steps.OpenPageSteps;
 import tasks.ConfigObjectProvider;
 
-public class TestTest {
+public class LoginTest {
     ConfigObjectProvider cfg = new ConfigObjectProvider();
     WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
 
@@ -16,20 +16,37 @@ public class TestTest {
     }
 
     @Test
-    public void testSeventh() {
+    public void negativeTest() {
         //webDriverFactory.get();
         new OpenPageSteps()
                 .openHomepage()
                 .acceptPrivacyModal()
                 .acceptCookies()
-                .clickSearchButton()
-                .inputSearchTerm("0119")
-                .clickSearchIcon()
-                .verifyNumberOfProductIsDisplayed(15);
+                .clickLoginButton()
+                .signInInit()
+                .typeInLogin("")
+                .typeInPassword("")
+                .errorOnInputAssertion();
     }
 
+    @Test
+    public void positiveTest() {
+        //webDriverFactory.get();
+        new OpenPageSteps()
+                .openHomepage()
+                .acceptPrivacyModal()
+                .acceptCookies()
+                .clickLoginButton()
+                .signInInit()
+                .typeInLogin(cfg.getMyEmail())
+                .typeInPassword(cfg.getMyPassword())
+                .signIn()
+                .loggedInAssertion();
+    }
+
+
     @After
-    public void restoreSystemInputOutput() {
+    public void endWebDriver() {
         webDriverFactory.end();
     }
 }

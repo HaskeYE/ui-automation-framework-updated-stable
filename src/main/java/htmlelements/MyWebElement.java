@@ -1,5 +1,4 @@
 package htmlelements;
-
 import io.qameta.htmlelements.element.ExtendedWebElement;
 
 /**

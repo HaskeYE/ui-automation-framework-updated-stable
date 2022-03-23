@@ -1,10 +1,11 @@
 package htmlelements.pages;
 
 import htmlelements.ExtendedMyWebElement;
+import htmlelements.ExtendedWebPage;
 import io.qameta.htmlelements.annotation.Description;
 import io.qameta.htmlelements.annotation.FindBy;
 
-public interface PrivacySettingsModal {
+public interface PrivacySettingsModal extends ExtendedWebPage {
     @Description("Accept button")
     @FindBy("//button[@class='btn btn-primary qa-btn-accept-cookie   " +
             "btn-block btn-sm qa-btn-accept-cookie _btn-accept-cookie_1eoaez']")
