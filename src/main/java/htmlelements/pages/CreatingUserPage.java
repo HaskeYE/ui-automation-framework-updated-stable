@@ -2,12 +2,11 @@ package htmlelements.pages;
 
 import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.Description;
-import io.qameta.htmlelements.annotation.FindBy;
+import io.qameta.htmlelements.annotation.*;
 
 public interface CreatingUserPage extends ExtendedWebPage {
     @Description("Email input")
-    @FindBy("//input[@id='ember1243-input']")
+    @FindBy("//input[@name='login']")
     ExtendedMyWebElement emailInput();
 
     @Description("First name input")
@@ -42,9 +41,9 @@ public interface CreatingUserPage extends ExtendedWebPage {
     @FindBy("//select[@name='year']")
     ExtendedMyWebElement yearOfBirthSelect();
 
-    @Description("Postal code input")
+    @Description("Term acceptation checkbox")
     @FindBy("//input[@name='acceptTerms']")
-    ExtendedMyWebElement acceptionCheckBox();
+    ExtendedMyWebElement acceptationCheckBox();
 
     @Description("Create account button")
     @FindBy("//button[@name='register']")

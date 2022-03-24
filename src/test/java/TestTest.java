@@ -1,19 +1,7 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import selenium.WebDriverFactory;
-import selenium.WebDriverFactoryProvider;
 import steps.OpenPageSteps;
-import tasks.ConfigObjectProvider;
 
-public class TestTest {
-    ConfigObjectProvider cfg = new ConfigObjectProvider();
-    WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
-
-    @Before
-    public void setUpWebDriver() {
-        webDriverFactory.initialize(cfg.getBrowser(), cfg.getSeleniumVer());
-    }
+public class TestTest extends BaseTest{
 
     @Test
     public void testSeventh() {
@@ -28,8 +16,4 @@ public class TestTest {
                 .verifyNumberOfProductIsDisplayed(15);
     }
 
-    @After
-    public void restoreSystemInputOutput() {
-        webDriverFactory.end();
-    }
 }

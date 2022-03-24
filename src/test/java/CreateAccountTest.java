@@ -1,26 +1,19 @@
-import org.junit.After;
-import org.junit.Before;
+import main.ScenarioContext;
+import main.ScenarioContextProvider;
 import org.junit.Test;
-import selenium.WebDriverFactory;
-import selenium.WebDriverFactoryProvider;
 import steps.OpenPageSteps;
-import tasks.ConfigObjectProvider;
 import utils.RandomUtils;
 
-public class CreateAccountTest {
-    ConfigObjectProvider cfg = new ConfigObjectProvider();
-    WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
-
-    @Before
-    public void setUpWebDriver() {
-        webDriverFactory.initialize(cfg.getBrowser(), cfg.getSeleniumVer());
-    }
+public class CreateAccountTest extends BaseTest {
+    ScenarioContext scenarioContext = ScenarioContextProvider.getInstance();
 
 
     @Test
     public void creatingUserTest() {
         String sampleMail = RandomUtils.generateRandomEmail("bk.ru");
         String sampleName = RandomUtils.generateRandomName();
+        scenarioContext.put("firstTestMail", sampleMail);
+        scenarioContext.put("firstTestUsername", sampleName);
 
         new OpenPageSteps()
                 .openHomepage()
@@ -28,16 +21,21 @@ public class CreateAccountTest {
                 .acceptCookies()
                 .clickLoginButton()
                 .createAccountInit()
-                .typeInEmail(sampleMail)
+
                 .typeInFirstName(sampleName)
                 .typeInLastName(sampleName)
+
+                .typeInEmail(sampleMail)
                 .typeInPassword()
+
                 .typeInPasswordConfirmation()
                 .typeInZipcode()
                 .chooseMonth()
                 .chooseDay()
                 .chooseYear()
+
                 .acceptPolicy()
+
                 .createAccount()
                 .clickLoginButton()
                 .loggedInAssertionNamed(sampleName);
@@ -49,10 +47,22 @@ public class CreateAccountTest {
     }
 
 
+    @Test
+    public void creatingUserAndLogInTest() {
+        String sampleMail = scenarioContext.get("firstTestMail");
 
-    @After
-    public void restoreSystemInputOutput() {
-        webDriverFactory.end();
+        new OpenPageSteps()
+                .openHomepage()
+                .acceptPrivacyModal()
+                .acceptCookies()
+                .clickLoginButton()
+                .signInInit()
+                .typeInLogin(sampleMail)
+                .typeInPassword(cfg.getMyPassword())
+                .signIn()
+                .loggedInAssertionNamed(sampleMail.substring(0,6));
+
+        scenarioContext.removeAll();
     }
 }
 

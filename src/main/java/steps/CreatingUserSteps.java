@@ -1,24 +1,29 @@
 package steps;
 
+import htmlelements.ExtendedMyWebElement;
 import htmlelements.MyPageFactory;
 import htmlelements.MyPageFactoryProvider;
 import htmlelements.pages.CreatingUserPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import selenium.WebDriverFactory;
+import selenium.WebDriverFactoryProvider;
 
 import static io.qameta.htmlelements.matcher.DisplayedMatcher.displayed;
 
 public class CreatingUserSteps {
     private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
+    WebDriver webDriver = WebDriverFactoryProvider.getInstance().getDriver();
 
     private CreatingUserPage creatingUserPage() { return pageFactory.on(CreatingUserPage.class); }
 
     public CreatingUserSteps typeInEmail(String email) {
-        creatingUserPage().emailInput().waitUntil(displayed()).click();
-        creatingUserPage().emailInput().waitUntil(displayed()).sendKeys(email);
-        return this;
-    }
-
-    public CreatingUserSteps typeInPassword() {
-        creatingUserPage().passwordInput().waitUntil(displayed()).sendKeys("passwordStrong1");
+        WebElement el =  webDriver.findElement(By.xpath("//input[@name='login']"));
+        el.click();
+        el.sendKeys(email);
+        //webDriver.findElement(By.xpath("//input[@name='login']")).sendKeys(email);
+        //creatingUserPage().emailInput().waitUntil(displayed()).sendKeys(email);
         return this;
     }
 
@@ -32,13 +37,18 @@ public class CreatingUserSteps {
         return this;
     }
 
+    public CreatingUserSteps typeInPassword() {
+        creatingUserPage().passwordInput().waitUntil(displayed()).sendKeys("passwordStrong1");
+        return this;
+    }
+
     public CreatingUserSteps typeInPasswordConfirmation() {
-        creatingUserPage().emailInput().waitUntil(displayed()).sendKeys("passwordStrong1");
+        creatingUserPage().passwordConfirmInput().waitUntil(displayed()).sendKeys("passwordStrong1");
         return this;
     }
 
     public CreatingUserSteps typeInZipcode() {
-        creatingUserPage().emailInput().waitUntil(displayed()).sendKeys("90210");
+        creatingUserPage().postalCodeInput().waitUntil(displayed()).sendKeys("90210");
         return this;
     }
 
@@ -58,7 +68,7 @@ public class CreatingUserSteps {
     }
 
     public CreatingUserSteps acceptPolicy() {
-        creatingUserPage().acceptionCheckBox().waitUntil(displayed()).click();
+        creatingUserPage().acceptationCheckBox().waitUntil(displayed()).click();
         return this;
     }
 
