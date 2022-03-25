@@ -1,8 +1,8 @@
-§# Create test steps
+# Create test steps
 
 One of important things to keep in mind when creating automated tests and developing testing frameworks is to keep modeled pages of application under test and test steps separate - to increase code scalability maintainability and readability.
 
-So every set of steps step you will create you will put in corresponding test step class - since here we will take actions only on homepage and performing search, you should first create OpenPageSteps.class - Steps related to opening pages, HomePageSteps.class - Steps related to homepage actions, SearchSteps.class - Steps related to search functionality - on site sidebar, SearchResultsPageSteps.class - Steps that take place on page where search results are displayed, put it in: main.java.steps package.
+So every set of steps step you will create you will put in corresponding test step class - since here we will take actions only on homepage and performing search, you should first create OpenPageSteps.class - Steps related to opening pages, HomePageSteps.class - Steps related to homepage actions, SearchSteps.class - Steps related to search functionality - on site sidebar, SearchResultsPageSteps.class - Steps that take place on page where search results are displayed, PrivacyModalSteps - Steps related to accepting cookie policy, put it in: main.java.steps package.
 
 To make our final tests more readable we will use simplified "builder" pattern - every public method of steps class will return this (Instance of this class) - therefore we will be able to "chain" step calls in our tests - It will be more clear soon.
 
@@ -25,12 +25,21 @@ private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
 
 private HomePage homePage() { return pageFactory.on(HomePage.class); }
 
-public HomePageSteps acceptPrivacyModal() {
-    homePage().acceptPrivacyButton().waitUntil(displayed()).click()
-    return this;
+public PrivacyModalSteps acceptPrivacyModal() {
+        homePage().privacySettingsModal().waitUntil(displayed()).click();
+        return new PrivacyModalSteps();
+        }
 }
 ```
 
+Then to accept cookies and return to HomePageSteps in PrivacyModalSteps you need to have: 
+
+```java
+public HomePageSteps acceptCookies() {
+        privacySettingsModal().acceptButton().waitUntil(displayed()).click();
+        return new HomePageSteps();
+    }
+```
 So `acceptPrivacyModal()` step waits for acceptPrivacyButton to be displayed and clicks it - first thing you need to do when homepage is opened - such convenient way of writing your steps is coming from html elements dependency.
 
 Following pattern from above implement `clickSearchButton()` step - Note when you click search button you should perform actions on search.

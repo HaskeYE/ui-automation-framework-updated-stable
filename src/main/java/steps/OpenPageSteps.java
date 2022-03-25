@@ -14,7 +14,7 @@ public class OpenPageSteps {
     public HomePageSteps openHomepage() {
         pageFactory
                 .on(HomePage.class)
-                .open("https://www.ae.com/us/en");
+                .open(cfg.getHomepageURL());
         System.out.println("page opened");
         return new HomePageSteps();  /*since homepage is opened after opening page, openHomepage() will give you access
          to HomePageSteps*/ }

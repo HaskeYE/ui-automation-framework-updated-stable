@@ -8,7 +8,7 @@ Purpose of this class is to provide convenient methods for configurable WebDrive
   * `end()`
   * `get()`
 
-## Create Browser enum class in main.java.enums package - So far we will cover Chrome and Firefox
+## Remember that methods that will be used in the next steps require Java 8 as SDK
 
 **`initialize()`** - Will initialize WebDriver instance according to browser (browser.name) that is set in runConfiguration.properties file. Probably it will have switch state according to chosen browser. Create two private methods that return WebDriver object - createChromeDriver() and createFirefoxDriver(). Inside these two methods you will instantiate for the beginning corresponding instances of ChromeDriver and FirefoxDriver.
 

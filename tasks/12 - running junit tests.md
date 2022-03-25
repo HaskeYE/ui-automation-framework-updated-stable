@@ -35,7 +35,9 @@ Create test suite class:
 
 In path test.java create SmokeSuite.class and include login only Test classes inside it - see documentation on how to do it: https://www.tutorialspoint.com/junit/junit_suite_test.htm - Section Create Test Suite Class.
 
-Now put your SmokeSuite.class in runSuite variable in pom.xml.
+Also implement TestRunner.class from there.
+
+Now put your Runner class that runs SmokeSuite.class in runSuite variable in pom.xml.
 
 Test your implementation by typing in command line:
 

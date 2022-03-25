@@ -18,3 +18,5 @@ NOTE 1: For step 5 you need to generate unique email for each scenario. Create R
 NOTE 2: Use hardcoded values in steps that fill input fields.
 
 NOTE 3: Implement in this class also before and after steps for opening and closing browser.
+
+NOTE 4: If You ran into problem with `org.openqa.selenium.ElementNotInteractableException` - then use Action to directly type data in fields clicking on their placeholders

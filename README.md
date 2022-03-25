@@ -67,3 +67,18 @@ Branching strategy is the same as we did in our first intro exercises - feature 
 5. Assertions - from JUnit and org.assertj - see https://assertj.github.io/doc/
 
 6. Reporting - JBehave native reporter - Optional implement allure reporting
+
+
+UPD:
+
+Some reformations in code of htmlelements.ExtendedWebPage
+
+pom.xml updated and line 55 changed, property on 10th line deleted
+
+* 2 - webdriver setup : note about Java ver
+* 6 - test steps: added new PageObject class to interact with cookie policy window properly
+* 9 - user account tests: note about problems with WebElements
+* 11 - scenario context: 15th line updated
+* 12 - running junit tests: updated information about using runner class in maven surefire
+* 13 - maven run configurations: 22nd line: there were some typos 
+* 14 - reporting with allure - link updated

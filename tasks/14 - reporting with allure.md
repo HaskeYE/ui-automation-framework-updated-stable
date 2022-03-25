@@ -6,6 +6,6 @@ As now you are running tests using maven, maven surefire plugin generates xml fi
 
 We will use very good reporting tool called allure reporter that will use this xml file and represent it in very nice report.
 
-See: http://allure.qatools.ru/.
+See: https://docs.qameta.io/allure/
 
 Allure documentation is very good so use it for installing allure on your system (Use brew for this purpose since it is most convenient) and for generating first allure report after running some set of test.

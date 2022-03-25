@@ -5,11 +5,6 @@
 
 <module name="Checker">
     <module name="TreeWalker">
-        <module name="EmptyLineSeparator">
-            <property name="allowMultipleEmptyLines" value="false"/>
-            <property name="allowNoEmptyLineBetweenFields" value="false"/>
-            <property name="tokens" value="METHOD_DEF"/>
-        </module>
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
         <module name="SingleSpaceSeparator"/>

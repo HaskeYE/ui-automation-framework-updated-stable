@@ -19,7 +19,7 @@ Name first configuration SmokeSuite_Chrome_DesktopSize In command line write:
 
 `-e clean test -Dbrowser.name=chrome -Dbrowser.height=1800 -Dbrowser.width=1300 -DrunSuite=**/SmokeSuite.class`
 
-NOTE: `-Dbrowser.name` value may vary depending how you named your browsers in enum from task 2
+NOTE: `-Dbrowser.name` value may vary depending on how you named your browsers in properties from task 2
 
 When you choose SmokeSuite_Chrome_DesktopSize from run config dropdown and click play your application should run all tests listed in SmokeSuite.class, in Chrome browser with browser size 1800 x 1300 pixels.
 

@@ -12,7 +12,7 @@ Implement this class in java.main package with following methods:
 
 * Initialize empty class variable HashMap as static block.
 
-* `public T get(String key, Class clazz)` - This method should return T type object from internal HashMap with key
+* `public <T> T get(String key)` - This method should return T type object from internal HashMap with key
 
 * `public void put(String key, Object value)` - This method will save in internal HashMap context Object as key
 
