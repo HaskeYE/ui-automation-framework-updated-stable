@@ -7,7 +7,6 @@ import utils.RandomUtils;
 public class CreateAccountTest extends BaseTest {
     ScenarioContext scenarioContext = ScenarioContextProvider.getInstance();
 
-
     @Test
     public void creatingUserTest() {
         String sampleMail = RandomUtils.generateRandomEmail("bk.ru");
@@ -39,13 +38,7 @@ public class CreateAccountTest extends BaseTest {
                 .createAccount()
                 .clickLoginButton()
                 .loggedInAssertionNamed(sampleName);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-
-        }
     }
-
 
     @Test
     public void creatingUserAndLogInTest() {
@@ -60,7 +53,7 @@ public class CreateAccountTest extends BaseTest {
                 .typeInLogin(sampleMail)
                 .typeInPassword(cfg.getMyPassword())
                 .signIn()
-                .loggedInAssertionNamed(sampleMail.substring(0,6));
+                .loggedInAssertionNamed(sampleMail.substring(0, 6));
 
         scenarioContext.removeAll();
     }

@@ -2,7 +2,6 @@ package steps;
 
 import htmlelements.MyPageFactory;
 import htmlelements.MyPageFactoryProvider;
-import htmlelements.pages.CreatingUserPage;
 import htmlelements.pages.PrivacySettingsModal;
 
 import static io.qameta.htmlelements.matcher.DisplayedMatcher.displayed;

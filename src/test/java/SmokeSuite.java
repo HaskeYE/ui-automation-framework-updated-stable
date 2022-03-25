@@ -1,7 +1,8 @@
 import org.junit.Test;
 
-public class SmokeSuite {
 
+
+public class SmokeSuite {
     @Test
     public void smokeLoginTest() {
         LoginTest lt = new LoginTest();

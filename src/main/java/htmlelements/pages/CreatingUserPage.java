@@ -42,7 +42,7 @@ public interface CreatingUserPage extends ExtendedWebPage {
     ExtendedMyWebElement yearOfBirthSelect();
 
     @Description("Term acceptation checkbox")
-    @FindBy("//input[@name='acceptTerms']")
+    @FindBy("//label[@class='aeo-checkbox-label clickable']")
     ExtendedMyWebElement acceptationCheckBox();
 
     @Description("Create account button")

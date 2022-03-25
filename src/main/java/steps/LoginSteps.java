@@ -5,6 +5,8 @@ import htmlelements.MyPageFactoryProvider;
 import htmlelements.pages.LoginSidebar;
 import tasks.ConfigObjectProvider;
 
+import java.util.Locale;
+
 import static io.qameta.htmlelements.matcher.DisplayedMatcher.displayed;
 
 public class LoginSteps {
@@ -47,13 +49,14 @@ public class LoginSteps {
 
     public LoginSteps loggedInAssertion() {
         assert (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed());
-        return  this;
+        return this;
     }
 
     public LoginSteps loggedInAssertionNamed(String name) {
-        String greetings = name + "'s Account";
+        String greetings = (name + "'s Account").toLowerCase();
+        String rexult = loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase();
         assert (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed()
-                && loginSidebar().userGreetings().waitUntil(displayed()).getText().equals(greetings));
-        return  this;
+                && loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase().equals(greetings));
+        return this;
     }
 }

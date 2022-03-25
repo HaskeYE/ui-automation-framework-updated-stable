@@ -5,7 +5,6 @@ import htmlelements.ExtendedWebPage;
 import io.qameta.htmlelements.annotation.Description;
 import io.qameta.htmlelements.annotation.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface SearchResultsPage extends ExtendedWebPage {

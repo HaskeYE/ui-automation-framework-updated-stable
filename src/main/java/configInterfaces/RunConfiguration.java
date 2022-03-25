@@ -10,10 +10,10 @@ public interface RunConfiguration extends Config {
     String browser();
 
     @Key("browser.width")
-    String browserWidth();
+    int browserWidth();
 
     @Key("browser.height")
-    String browserHeight();
+    int browserHeight();
 
     @Key("selenium.version")
     String seleniumVer();

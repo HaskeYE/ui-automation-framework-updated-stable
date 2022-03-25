@@ -6,8 +6,8 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigObjectProvider {
     String browser;
-    String browserWidth;
-    String browserHeight;
+    int browserWidth;
+    int browserHeight;
     String seleniumVer;
     String homepageURL;
     int timeout;
@@ -40,6 +40,14 @@ public class ConfigObjectProvider {
 
     public String getBrowser() {
         return browser;
+    }
+
+    public int getBrowserHeight() {
+        return browserHeight;
+    }
+
+    public int getBrowserWidth() {
+        return browserWidth;
     }
 
     public String getSeleniumVer() {

@@ -1,13 +1,12 @@
 package steps;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.MyPageFactory;
 import htmlelements.MyPageFactoryProvider;
 import htmlelements.pages.CreatingUserPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import selenium.WebDriverFactory;
+import org.openqa.selenium.interactions.Actions;
 import selenium.WebDriverFactoryProvider;
 
 import static io.qameta.htmlelements.matcher.DisplayedMatcher.displayed;
@@ -19,11 +18,10 @@ public class CreatingUserSteps {
     private CreatingUserPage creatingUserPage() { return pageFactory.on(CreatingUserPage.class); }
 
     public CreatingUserSteps typeInEmail(String email) {
-        WebElement el =  webDriver.findElement(By.xpath("//input[@name='login']"));
-        el.click();
-        el.sendKeys(email);
-        //webDriver.findElement(By.xpath("//input[@name='login']")).sendKeys(email);
-        //creatingUserPage().emailInput().waitUntil(displayed()).sendKeys(email);
+        webDriver.findElement(By.xpath("//div[@class='form-group aeo-input qa-input-login field-email']")).click();
+        Actions a = new Actions(webDriver);
+        a.sendKeys(email);
+        a.build().perform();
         return this;
     }
 
@@ -38,7 +36,10 @@ public class CreatingUserSteps {
     }
 
     public CreatingUserSteps typeInPassword() {
-        creatingUserPage().passwordInput().waitUntil(displayed()).sendKeys("passwordStrong1");
+        webDriver.findElement(By.xpath("//div[@class='form-group aeo-input qa-input-password']")).click();
+        Actions a = new Actions(webDriver);
+        a.sendKeys("passwordStrong1");
+        a.build().perform();
         return this;
     }
 

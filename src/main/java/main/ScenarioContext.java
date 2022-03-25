@@ -14,7 +14,7 @@ public class ScenarioContext {
     }
 
     public void put(String key, Object value) {
-        testDataStorage.put(key, value);}
+        testDataStorage.put(key, value); }
 
     public void remove(String key) {
         testDataStorage.remove(key);

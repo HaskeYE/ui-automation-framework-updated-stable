@@ -4,8 +4,6 @@ import htmlelements.MyPageFactory;
 import htmlelements.MyPageFactoryProvider;
 import htmlelements.pages.SearchResultsPage;
 
-import static io.qameta.htmlelements.matcher.DisplayedMatcher.displayed;
-
 public class SearchResultsPageSteps {
     private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
 

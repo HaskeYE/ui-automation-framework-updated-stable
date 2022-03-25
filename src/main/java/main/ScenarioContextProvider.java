@@ -1,7 +1,5 @@
 package main;
 
-import htmlelements.MyPageFactory;
-
 public class ScenarioContextProvider {
     private static ScenarioContext INSTANCE;
 
