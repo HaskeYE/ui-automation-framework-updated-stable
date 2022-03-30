@@ -23,7 +23,7 @@ pipeline {
         always {
         surefire(
         allowEmptyResults: true,
-        testResults: '/Users/ebykov/IdeaProjects/ui-automation-framework/target/surefire-reports/TEST-SmokeSuite.xml'
+        testResults: '/target/surefire-reports/TEST-SmokeSuite.xml'
         )
         }
         }
