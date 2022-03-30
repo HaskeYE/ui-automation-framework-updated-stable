@@ -21,7 +21,7 @@ pipeline {
         }
         post {
         always {
-        surefire(
+        junit(
         allowEmptyResults: true,
         testResults: '/target/surefire-reports/TEST-SmokeSuite.xml'
         )
