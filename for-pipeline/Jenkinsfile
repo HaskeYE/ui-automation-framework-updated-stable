@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
         steps {
-        dir("/Users/ebykov/.jenkins/workspace/Selenium-Job/my-app") {
+        dir("/Users/ebykov/.jenkins/workspace/Selenium-Job") {
         sh 'mvn -B -DskipTests clean package'
         }
         }
