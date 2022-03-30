@@ -1,6 +1,6 @@
 # Using JBehave
 
-So far our tests used JUnit engine and chaining test steps to create test cases. We have also created way of filtering test suits and executing them using maven surefire plugin through maven run configuration.
+So far our tests used JUnit engine and chaining test steps to create test cases. We have also created way of filtering test suits and executing them using maven sure 1§fire plugin through maven run configuration.
 
 This approach is good but there are technologies that can help our test implementation and ways of filtering tests even more convenient.
 

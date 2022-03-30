@@ -1,7 +1,7 @@
 import org.junit.Test;
 import steps.OpenPageSteps;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
     @Test
     public void negativeTest() {

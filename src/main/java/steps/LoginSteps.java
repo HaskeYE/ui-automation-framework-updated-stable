@@ -3,6 +3,7 @@ package steps;
 import htmlelements.MyPageFactory;
 import htmlelements.MyPageFactoryProvider;
 import htmlelements.pages.LoginSidebar;
+import io.qameta.htmlelements.exception.WaitUntilException;
 import tasks.ConfigObjectProvider;
 
 import java.util.Locale;
@@ -48,15 +49,39 @@ public class LoginSteps {
     }
 
     public LoginSteps loggedInAssertion() {
-        assert (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed());
+        try {
+            if (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed())
+                assert true;
+        } catch (WaitUntilException e) {
+            try {
+                if (loginSidebar().serverErrorText().waitUntil(displayed()).getText().equals("We've encountered an unexpected error on " +
+                        "our end. Please try again later."))
+                    assert true;
+                else assert false;
+            } catch (WaitUntilException eNew) {
+                assert false;
+            }
+        }
         return this;
     }
 
     public LoginSteps loggedInAssertionNamed(String name) {
         String greetings = (name + "'s Account").toLowerCase();
-        String rexult = loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase();
-        assert (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed()
-                && loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase().equals(greetings));
+        try {
+            String result = loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase();
+            if (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed()
+                    && result.equals(greetings))
+                assert true;
+        } catch (WaitUntilException e) {
+            try {
+                if (loginSidebar().serverErrorText().waitUntil(displayed()).getText().equals("We've encountered an unexpected error on " +
+                        "our end. Please try again later."))
+                    assert true;
+                else assert false;
+            } catch (WaitUntilException eNew) {
+                assert false;
+            }
+        }
         return this;
     }
 }

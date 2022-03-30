@@ -34,4 +34,8 @@ public interface LoginSidebar extends ExtendedWebPage {
     @Description("Username greeting")
     @FindBy("//h2[@class='modal-title']")
     ExtendedMyWebElement userGreetings();
+
+    @Description("Unexpected server error")
+    @FindBy("//li[@class='ember-view help-block qa-error-help-block has-error   _help-block_21ei9c']")
+    ExtendedMyWebElement serverErrorText();
 }
