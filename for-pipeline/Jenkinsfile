@@ -21,7 +21,7 @@ pipeline {
         }
         post {
         always {
-        junit(
+        reports(
         allowEmptyResults: true,
         testResults: 'Users/ebykov/.jenkins/workspace/Selenium-Job/target/surefire-reports/TEST-SmokeSuite.xml'
         )
