@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
         steps {
         dir("/Users/ebykov/.jenkins/workspace/Selenium-Job") {
-        sh 'mvn -B -DskipTests clean package'
+        sh 'mvn clean test'
         }
         }
         }
