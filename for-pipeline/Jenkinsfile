@@ -23,7 +23,7 @@ pipeline {
         always {
         junit(
         allowEmptyResults: true,
-        testResults: '/**/surefire-reports/*.xml'
+        testResults: 'TEST-SmokeSuite'
         )
         }
         }
