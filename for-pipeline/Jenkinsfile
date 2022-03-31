@@ -1,32 +1,33 @@
-pipeline {
-        agent any
-        tools {
-        maven "Maven-1"
-        jdk "JAva-1"
-        }
-        stages {
-        stage('Initialize'){
-        steps{
-        echo "PATH = ${M2_HOME}/bin:${PATH}"
-        echo "M2_HOME = /opt/maven"
-        }
-        }
-        stage('Build') {
-        steps {
-        dir("/Users/ebykov/.jenkins/workspace/Selenium-Job") {
-        sh 'mvn clean test'
-        }
-        }
-        }
-        }
-        stage('Test') {
-                            steps {
-                                sh 'mvn test'
-                            }
-                            post {
-                                always {
-                                    junit 'target/surefire-reports/*.xml'
-                                }
-                            }
+
+        pipeline {
+            agent any
+                    tools {
+                        maven "Maven-1"
+                        jdk "JAva-1"
+                    }
+            stages {
+                stage('Initialize'){
+                    steps{
+                        echo "PATH = ${M2_HOME}/bin:${PATH}"
+                        echo "M2_HOME = /opt/maven"
                         }
+                    }
+                stage('Build') {
+                    steps {
+                    dir("/Users/ebykov/.jenkins/workspace/Selenium-Job") {
+                            sh 'mvn -B -DskipTests clean package'
+                        }
+                    }
+                }
+                stage('Test') {
+                    steps {
+                        sh 'mvn test'
+                    }
+                    post {
+                        always {
+                            junit 'target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+            }
         }
