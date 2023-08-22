@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 import static io.qameta.htmlelements.context.Store.DRIVER_KEY;
 
@@ -24,11 +25,7 @@ public @interface IsAtPageMethod {
             String pageNotLoadedMessage = getLoadTimeoutDetails(args);
             Matcher<String> urlMatcher = getUrlMatcher(args);
 
-            new WebDriverWait(driver, 30) // TODO: Create timeout as configurable property
-                    .withMessage(pageNotLoadedMessage)
-                    .ignoring(Throwable.class)
-                    .until((driver1) -> (driver != null && urlMatcher.matches(driver.getCurrentUrl()) &&
-                            WebDriverUtils.pageIsLoaded(driver)));
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             return proxy;
         }
 

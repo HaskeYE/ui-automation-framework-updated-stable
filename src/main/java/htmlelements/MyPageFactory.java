@@ -1,9 +1,7 @@
 package htmlelements;
 
-import io.qameta.htmlelements.WebPage;
-import io.qameta.htmlelements.WebPageFactory;
-import io.qameta.htmlelements.statement.RetryStatement;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import selenium.WebDriverFactory;
 import selenium.WebDriverFactoryProvider;
 import tasks.ConfigObjectProvider;
@@ -11,12 +9,14 @@ import tasks.ConfigObjectProvider;
 public class MyPageFactory {
     ConfigObjectProvider configs = new ConfigObjectProvider();
 
-    public <T extends WebPage> T on(Class<T> webpage) {
-        WebPageFactory webPageFactory = new WebPageFactory();
-        webPageFactory.property(RetryStatement.TIMEOUT_KEY, String.valueOf(configs.getTimeout())); // Create timeout as configurable property
+    public <T extends ExtendedWebPage> T on(Class<T> webpage) {
+        PageFactory webPageFactory = new PageFactory();
+        //WebPageFactory webPageFactory = new WebPageFactory();
+        //webPageFactory.property(RetryStatement.TIMEOUT_KEY, String.valueOf(configs.getTimeout())); // Create timeout as configurable
+        // property
 
         WebDriver wd = getDriver();
-        return webPageFactory.get(wd, webpage);
+        return PageFactory.initElements(wd, webpage);
     }
 
     public WebDriver getDriver() {

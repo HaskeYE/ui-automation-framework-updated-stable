@@ -26,7 +26,7 @@ private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
 private HomePage homePage() { return pageFactory.on(HomePage.class); }
 
 public PrivacyModalSteps acceptPrivacyModal() {
-        homePage().privacySettingsModal().waitUntil(displayed()).click();
+        homePage().privacySettingsModal().click();
         return new PrivacyModalSteps();
         }
 }
@@ -36,7 +36,7 @@ Then to accept cookies and return to HomePageSteps in PrivacyModalSteps you need
 
 ```java
 public HomePageSteps acceptCookies() {
-        privacySettingsModal().acceptButton().waitUntil(displayed()).click();
+        privacySettingsModal().acceptButton().click();
         return new HomePageSteps();
     }
 ```

@@ -2,12 +2,11 @@ package htmlelements.pages;
 
 import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.*;
+import org.openqa.selenium.support.FindBy;
 
-public interface CreatingUserPage extends ExtendedWebPage {
-    @Description("Email input")
-    @FindBy("//input[@name='login']")
-    ExtendedMyWebElement emailInput();
+public class CreatingUserPage extends ExtendedWebPage {
+    @FindBy(xpath = "//input[@name='login']")
+    ExtendedMyWebElement emailInput;
 
     @Description("First name input")
     @FindBy("//input[@name='firstname']")

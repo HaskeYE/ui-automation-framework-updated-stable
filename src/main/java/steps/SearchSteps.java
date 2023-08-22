@@ -12,12 +12,12 @@ public class SearchSteps {
     private SearchSidebar searchSidebar() { return pageFactory.on(SearchSidebar.class); }
 
     public SearchSteps inputSearchTerm(String term) {
-        searchSidebar().searchField().waitUntil(displayed()).sendKeys(term);
+        searchSidebar().searchField().sendKeys(term);
         return this;
     }
 
     public SearchResultsPageSteps clickSearchIcon() {
-        searchSidebar().searchButton().waitUntil(displayed()).click();
+        searchSidebar().searchButton().click();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

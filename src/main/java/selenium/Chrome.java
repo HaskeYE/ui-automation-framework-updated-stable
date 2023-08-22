@@ -9,7 +9,7 @@ public class Chrome {
     public static WebDriver getWebDriver(String version) {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("resolution", "1024x768");
-        WebDriverManager.chromedriver().driverVersion(version).setup();
+        WebDriverManager.chromedriver().driverVersion("116.0.5845.96").setup();
         System.out.println("Chrome driver successfully set up");
         return new ChromeDriver();
     }

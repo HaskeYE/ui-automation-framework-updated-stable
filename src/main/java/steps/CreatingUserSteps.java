@@ -26,12 +26,12 @@ public class CreatingUserSteps {
     }
 
     public CreatingUserSteps typeInFirstName(String firstName) {
-        creatingUserPage().firstNameInput().waitUntil(displayed()).sendKeys(firstName);
+        creatingUserPage().firstNameInput().sendKeys(firstName);
         return this;
     }
 
     public CreatingUserSteps typeInLastName(String lastName) {
-        creatingUserPage().lastNameInput().waitUntil(displayed()).sendKeys(lastName);
+        creatingUserPage().lastNameInput().sendKeys(lastName);
         return this;
     }
 
@@ -44,37 +44,37 @@ public class CreatingUserSteps {
     }
 
     public CreatingUserSteps typeInPasswordConfirmation() {
-        creatingUserPage().passwordConfirmInput().waitUntil(displayed()).sendKeys("passwordStrong1");
+        creatingUserPage().passwordConfirmInput().sendKeys("passwordStrong1");
         return this;
     }
 
     public CreatingUserSteps typeInZipcode() {
-        creatingUserPage().postalCodeInput().waitUntil(displayed()).sendKeys("90210");
+        creatingUserPage().postalCodeInput().sendKeys("90210");
         return this;
     }
 
     public CreatingUserSteps chooseMonth() {
-        creatingUserPage().monthOfBirthSelect().waitUntil(displayed()).sendKeys("April");
+        creatingUserPage().monthOfBirthSelect().sendKeys("April");
         return this;
     }
 
     public CreatingUserSteps chooseDay() {
-        creatingUserPage().dayOfBirthSelect().waitUntil(displayed()).sendKeys("7");
+        creatingUserPage().dayOfBirthSelect().sendKeys("7");
         return this;
     }
 
     public CreatingUserSteps chooseYear() {
-        creatingUserPage().yearOfBirthSelect().waitUntil(displayed()).sendKeys("2000");
+        creatingUserPage().yearOfBirthSelect().sendKeys("2000");
         return this;
     }
 
     public CreatingUserSteps acceptPolicy() {
-        creatingUserPage().acceptationCheckBox().waitUntil(displayed()).click();
+        creatingUserPage().acceptationCheckBox().click();
         return this;
     }
 
     public HomePageSteps createAccount() {
-        creatingUserPage().createAccountButton().waitUntil(displayed()).click();
+        creatingUserPage().createAccountButton().click();
         return new HomePageSteps();
     }
 }

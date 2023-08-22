@@ -1,33 +1,33 @@
 package htmlelements;
 
 import annotations.IsAtPageMethod;
-import io.qameta.htmlelements.WebPage;
-import io.qameta.htmlelements.extension.DriverProvider;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import selenium.WebDriverFactory;
 import selenium.WebDriverFactoryProvider;
 
 /**
- * HtmlElements is not supported for later Selenium versions after 3.10.0, 
+ * HtmlElements is not supported for later Selenium versions after 3.10.0,
  * this is a wrapper class to avoid issues.
  * It can be also used for extending or overriding WebPage behavior
  */
-public interface ExtendedWebPage extends WebPage {
+public abstract class ExtendedWebPage {
 
-    @DriverProvider
-    WebDriver getWrappedDriver();
+    WebDriver driver;
 
-    @IsAtPageMethod
-    void isAtPage(Matcher<String> url);
 
-    @Override
-    default void isAt(Matcher<String> url) {
+
+    public ExtendedWebPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+     void isAt(Matcher<String> url) {
         isAtPage(url);
     }
 
-    @Override
-        default void open(String s) {
+     void open(String s) {
         WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
         webDriverFactory.getDriver().get(s);
     }

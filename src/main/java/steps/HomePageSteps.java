@@ -14,17 +14,17 @@ public class HomePageSteps {
     }
 
     public PrivacyModalSteps acceptPrivacyModal() {
-        homePage().privacySettingsModal().waitUntil(displayed()).click();
+        homePage().privacySettingsModal().click();
         return new PrivacyModalSteps();
     }
 
     public SearchSteps clickSearchButton() {
-        homePage().searchButton().waitUntil(displayed()).click();
+        homePage().searchButton().click();
         return new SearchSteps();
     }
 
     public LoginSteps clickLoginButton() {
-        homePage().accountIcon().waitUntil(displayed()).click();
+        homePage().accountIcon().click();
         return new LoginSteps();
     }
 }

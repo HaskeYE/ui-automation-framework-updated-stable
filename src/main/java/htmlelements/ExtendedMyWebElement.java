@@ -1,4 +1,4 @@
 package htmlelements;
 
-public interface ExtendedMyWebElement extends MyWebElement<ExtendedMyWebElement> {
+public interface ExtendedMyWebElement extends MyWebElement {
 }

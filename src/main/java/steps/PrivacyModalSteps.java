@@ -12,7 +12,7 @@ public class PrivacyModalSteps {
     private PrivacySettingsModal privacySettingsModal() { return pageFactory.on(PrivacySettingsModal.class); }
 
     public HomePageSteps acceptCookies() {
-        privacySettingsModal().acceptButton().waitUntil(displayed()).click();
+        privacySettingsModal().acceptButton().click();
         return new HomePageSteps();
     }
 }

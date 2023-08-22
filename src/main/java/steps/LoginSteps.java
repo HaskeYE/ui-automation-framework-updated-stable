@@ -18,43 +18,43 @@ public class LoginSteps {
     private LoginSidebar loginSidebar() { return pageFactory.on(LoginSidebar.class); }
 
     public LoginSteps signInInit() {
-        loginSidebar().signinInit().waitUntil(displayed()).click();
+        loginSidebar().signinInit().click();
         return this;
     }
 
     public CreatingUserSteps createAccountInit() {
-        loginSidebar().createAccountInit().waitUntil(displayed()).click();
+        loginSidebar().createAccountInit().click();
         return new CreatingUserSteps();
     }
 
     public LoginSteps typeInLogin(String login) {
-        loginSidebar().usernameInput().waitUntil(displayed()).sendKeys(login);
+        loginSidebar().usernameInput().sendKeys(login);
         return this;
     }
 
     public LoginSteps typeInPassword(String password) {
-        loginSidebar().passwordInput().waitUntil(displayed()).sendKeys(password);
+        loginSidebar().passwordInput().sendKeys(password);
         return this;
     }
 
     public LoginSteps signIn() {
-        loginSidebar().loginButton().waitUntil(displayed()).click();
+        loginSidebar().loginButton().click();
         return this;
     }
 
     public LoginSteps errorOnInputAssertion() {
-        loginSidebar().loginButton().waitUntil(displayed()).click();
+        loginSidebar().loginButton().click();
         assert(loginSidebar().errorMessage().getText().equals("Hold up, there's a problem."));
         return this;
     }
 
     public LoginSteps loggedInAssertion() {
         try {
-            if (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed())
+            if (loginSidebar().userGreetings().isDisplayed())
                 assert true;
         } catch (WaitUntilException e) {
             try {
-                if (loginSidebar().serverErrorText().waitUntil(displayed()).getText().equals("We've encountered an unexpected error on " +
+                if (loginSidebar().serverErrorText().getText().equals("We've encountered an unexpected error on " +
                         "our end. Please try again later."))
                     assert true;
                 else assert false;
@@ -68,13 +68,13 @@ public class LoginSteps {
     public LoginSteps loggedInAssertionNamed(String name) {
         String greetings = (name + "'s Account").toLowerCase();
         try {
-            String result = loginSidebar().userGreetings().waitUntil(displayed()).getText().toLowerCase();
-            if (loginSidebar().userGreetings().waitUntil(displayed()).isDisplayed()
+            String result = loginSidebar().userGreetings().getText().toLowerCase();
+            if (loginSidebar().userGreetings().isDisplayed()
                     && result.equals(greetings))
                 assert true;
         } catch (WaitUntilException e) {
             try {
-                if (loginSidebar().serverErrorText().waitUntil(displayed()).getText().equals("We've encountered an unexpected error on " +
+                if (loginSidebar().serverErrorText().getText().equals("We've encountered an unexpected error on " +
                         "our end. Please try again later."))
                     assert true;
                 else assert false;
