@@ -4,10 +4,25 @@ Html elements dependency enables us to map pages of application under test as in
 
 Take a look at following files:
 
-* htmlelements.public WebElement
 * htmlelements.ExtendedWebPage
-* htmlelements.WebElement
+* htmlelements.MyWebElement
 * htmlelements.MyPageFactory
 * htmlelements.MyPageFactoryProvider
 
-In the classes you will find couple of TODO comments, implement them.
+In the classes you will find a couple of TODO comments, implement them.
+
+# Шаблон PageObjectModel с использованием зависимости элементов html — уже реализовано
+
+Зависимость HtmlElements позволяет нам отображать страницы тестируемого приложения как классы. Он также предоставляет множество удобных 
+способов манипулирования Selenium WebElements, как вы увидите, когда начнете писать свои первые тестовые степы. Эту часть уже реализовали,
+потому что онлайн-документация очень скудна. Ваша задача — попытаться понять этот код, а затем научиться использовать утилиты, 
+предоставляемые этой зависимостью.
+
+Взгляните на следующие файлы:
+
+* htmlelements.ExtendedWebPage
+* htmlelements.MyWebElement
+* htmlelements.MyPageFactory
+* htmlelements.MyPageFactoryProvider
+
+В классах вы найдете комментарий TODO, реализуйте его.

@@ -1,6 +1,6 @@
 # Using JBehave
 
-So far our tests used JUnit engine and chaining test steps to create test cases. We have also created way of filtering test suits and executing them using maven sure 1§fire plugin through maven run configuration.
+So far our tests used JUnit engine and chaining test steps to create test cases. We have also created way of filtering test suits and executing them using maven sure fire plugin through maven run configuration.
 
 This approach is good but there are technologies that can help our test implementation and ways of filtering tests even more convenient.
 
@@ -39,14 +39,14 @@ Example:
 
 ```java
 @Given("I have an empty stack")
-public void givenIHaveAnEmptyStack() { stack = new CustomStack; }
+public void givenIHaveAnEmptyStack() { stack = new CustomStack(); }
 
 @When("I push an item $item")
 public void whenIPushAnItem(@named("item") String item) { stack.push(item); }
 
 @Then("I should count $expected")
 public void thenIShouldCount(@named("expected") int expected) {
-    int actual = stack.count;
+    int actual = stack.count();
 
     if (actual != expected)
         throw new RuntimeException("expected:"+expected+";actual:"+actual);
