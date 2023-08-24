@@ -1,50 +1,46 @@
 package htmlelements.pages;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class CreatingUserPage extends ExtendedWebPage {
+
     @FindBy(xpath = "//input[@name='login']")
-    ExtendedMyWebElement emailInput;
+    public WebElement emailInput;
 
-    @Description("First name input")
-    @FindBy("//input[@name='firstname']")
-    ExtendedMyWebElement firstNameInput();
+    @FindBy(xpath = "//input[@name='firstname']")
+    public WebElement firstNameInput;
 
-    @Description("Last name input")
-    @FindBy("//input[@name='lastname']")
-    ExtendedMyWebElement lastNameInput();
+    @FindBy(xpath = "//input[@name='lastname']")
+    public WebElement lastNameInput;
 
-    @Description("Password input")
-    @FindBy("//input[@name='password']")
-    ExtendedMyWebElement passwordInput();
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordInput;
 
-    @Description("Password confirmation input")
-    @FindBy("//input[@name='confirm_password']")
-    ExtendedMyWebElement passwordConfirmInput();
+    @FindBy(xpath = "//input[@name='confirm_password']")
+    public WebElement passwordConfirmInput;
 
-    @Description("Postal code input")
-    @FindBy("//input[@name='postalCode']")
-    ExtendedMyWebElement postalCodeInput();
+    @FindBy(xpath = "//input[@name='postalCode']")
+    public WebElement postalCodeInput;
 
-    @Description("Select month of birth")
-    @FindBy("//select[@name='month']")
-    ExtendedMyWebElement monthOfBirthSelect();
+    @FindBy(xpath = "//select[@name='month']")
+    public WebElement monthOfBirthSelect;
 
-    @Description("Select day of birth")
-    @FindBy("//select[@name='day']")
-    ExtendedMyWebElement dayOfBirthSelect();
+    @FindBy(xpath = "//select[@name='day']")
+    public WebElement dayOfBirthSelect;
 
-    @Description("Select year of birth")
-    @FindBy("//select[@name='year']")
-    ExtendedMyWebElement yearOfBirthSelect();
+    @FindBy(xpath = "//select[@name='year']")
+    public WebElement yearOfBirthSelect;
 
-    @Description("Term acceptation checkbox")
-    @FindBy("//label[@class='aeo-checkbox-label clickable']")
-    ExtendedMyWebElement acceptationCheckBox();
+    @FindBy(xpath = "//label[@class='aeo-checkbox-label clickable']")
+    public WebElement acceptationCheckBox;
 
-    @Description("Create account button")
-    @FindBy("//button[@name='register']")
-    ExtendedMyWebElement createAccountButton();
+    @FindBy(xpath = "//button[@name='register']")
+    public WebElement createAccountButton;
+
+    public CreatingUserPage(WebDriver driver) {
+
+    }
 }

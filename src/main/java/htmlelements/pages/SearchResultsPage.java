@@ -1,26 +1,27 @@
 package htmlelements.pages;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.Description;
-import io.qameta.htmlelements.annotation.FindBy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public interface SearchResultsPage extends ExtendedWebPage {
-    @Description("Your account icon")
-    @FindBy("//li[@class='tnav-myaeo utilities-list-item utilities-account qa-utilities-account hidden-on-affix']")
-    ExtendedMyWebElement accountIcon();
+public class SearchResultsPage extends ExtendedWebPage {
 
-    @Description("Search button")
-    @FindBy("//li[@class='utilities-list-item utilities-search qa-utilities-search relative']")
-    ExtendedMyWebElement searchButton();
+    @FindBy(xpath = "//li[@class='tnav-myaeo utilities-list-item utilities-account qa-utilities-account hidden-on-affix']")
+    public WebElement accountIcon;
 
-    @Description("Cart button")
-    @FindBy("//li[@class='utilities-list-item utilities-cart qa-utilities-cart relative']")
-    ExtendedMyWebElement cartIcon();
+    @FindBy(xpath = "//li[@class='utilities-list-item utilities-search qa-utilities-search relative']")
+    public WebElement searchButton;
 
-    @Description("Products found by search header")
-    @FindBy("//div[@class='product-tile qa-product-tile __eadf2 col-md-4 col-xs-6 qa-search-result-item']")
-    List<ExtendedMyWebElement> productsListedAfterSearch();
+    @FindBy(xpath = "//li[@class='utilities-list-item utilities-cart qa-utilities-cart relative']")
+    public WebElement cartIcon;
+
+    public SearchResultsPage(WebDriver driver) {
+        
+    }
+
+    @FindBy(xpath = "//div[@class='product-tile qa-product-tile __eadf2 col-md-4 col-xs-6 qa-search-result-item']")
+    public List<WebElement> productsListedAfterSearch;
 }

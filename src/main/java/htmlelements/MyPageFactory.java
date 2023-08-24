@@ -6,15 +6,12 @@ import selenium.WebDriverFactory;
 import selenium.WebDriverFactoryProvider;
 import tasks.ConfigObjectProvider;
 
+import java.time.Duration;
+
 public class MyPageFactory {
     ConfigObjectProvider configs = new ConfigObjectProvider();
 
     public <T extends ExtendedWebPage> T on(Class<T> webpage) {
-        PageFactory webPageFactory = new PageFactory();
-        //WebPageFactory webPageFactory = new WebPageFactory();
-        //webPageFactory.property(RetryStatement.TIMEOUT_KEY, String.valueOf(configs.getTimeout())); // Create timeout as configurable
-        // property
-
         WebDriver wd = getDriver();
         return PageFactory.initElements(wd, webpage);
     }
@@ -22,7 +19,7 @@ public class MyPageFactory {
     public WebDriver getDriver() {
         WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
         System.out.println(webDriverFactory.getDriver().hashCode());
-        return webDriverFactory.getDriver(); // Here you need to pass WebDriver instance from WebDriverFactory.get();
+        return webDriverFactory.getDriver(); // Here you need to pass WebDriver instance from WebDriverFactory.get;
     }
 
 }

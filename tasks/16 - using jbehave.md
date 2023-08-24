@@ -39,14 +39,14 @@ Example:
 
 ```java
 @Given("I have an empty stack")
-public void givenIHaveAnEmptyStack() { stack = new CustomStack(); }
+public void givenIHaveAnEmptyStack() { stack = new CustomStack; }
 
 @When("I push an item $item")
 public void whenIPushAnItem(@named("item") String item) { stack.push(item); }
 
 @Then("I should count $expected")
 public void thenIShouldCount(@named("expected") int expected) {
-    int actual = stack.count();
+    int actual = stack.count;
 
     if (actual != expected)
         throw new RuntimeException("expected:"+expected+";actual:"+actual);

@@ -11,9 +11,8 @@ You should follow following pattern in your page interfaces:
 * Every element from this page should be defined in the following way, see concrete example:
 
 ```java
-    @Description("Username input")
-    @FindBy("//input[@type='email']")
-    ExtendedMyWebElement usernameInput();
+        @FindBy(xpath ="//input[@type='email']")
+    public WebElement usernameInput;
 ```
 
 * Go to www.ae.com, when homepage is opened, extract xpath from privacy settings modal (first modal opened) and account icon on header menu following example from above - NOTE: Since privacy settings is UI modal, it would be great to create new interface PrivacySettingsModal and here map "Accept" button (It is first thing you need to do when you open homepage of ae.com - accept privacy settings)

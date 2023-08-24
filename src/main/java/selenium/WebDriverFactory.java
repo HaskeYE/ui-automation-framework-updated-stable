@@ -4,6 +4,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import tasks.ConfigObjectProvider;
 
+import java.time.Duration;
+
 public class WebDriverFactory {
     public WebDriver webDriver;
     ConfigObjectProvider cfg = new ConfigObjectProvider();
@@ -13,6 +15,7 @@ public class WebDriverFactory {
         if (typeOfBrowser.equals("Chrome")) {
             webDriver = Chrome.getWebDriver(version);
             webDriver.manage().window().setSize(new Dimension(cfg.getBrowserWidth(), cfg.getBrowserHeight()));
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(cfg.getTimeout()));
             System.out.println("WebDriver set up");
         }
         if (typeOfBrowser.equals("Firefox")) {

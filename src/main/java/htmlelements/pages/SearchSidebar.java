@@ -1,16 +1,17 @@
 package htmlelements.pages;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.Description;
-import io.qameta.htmlelements.annotation.FindBy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
-public interface SearchSidebar extends ExtendedWebPage {
-    @Description("Search field")
-    @FindBy("//input[@name='search']")
-    ExtendedMyWebElement searchField();
+public class SearchSidebar extends ExtendedWebPage {
+        @FindBy(xpath ="//input[@name='search']")
+    public WebElement searchField;
 
-    @Description("Search button")
-    @FindBy("//button[@class='btn-link    btn search-btn']")
-    ExtendedMyWebElement searchButton();
+        @FindBy(xpath ="//button[@class='btn-link    btn search-btn']")
+    public WebElement searchButton;
+
+    public SearchSidebar(WebDriver driver) {
+    }
 }

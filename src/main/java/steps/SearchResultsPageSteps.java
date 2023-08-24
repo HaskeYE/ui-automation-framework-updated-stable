@@ -10,7 +10,7 @@ public class SearchResultsPageSteps {
     private SearchResultsPage searchResultsPage() { return pageFactory.on(SearchResultsPage.class); }
 
     public SearchResultsPageSteps verifyNumberOfProductIsDisplayed(int numProducts){
-        assert (searchResultsPage().productsListedAfterSearch().size() == numProducts);
+        assert (searchResultsPage().productsListedAfterSearch.size() == numProducts);
         return this;
     }
 }

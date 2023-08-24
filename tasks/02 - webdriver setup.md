@@ -16,11 +16,11 @@ NOTE: Here you will use **bonigarcia** dependency
 
 If selenium version is stated run config file use this:
 
-`ChromeDriverManager.chromedriver().version(Version from runConfiguration.properties file - selenium.version).setup();`
+`ChromeDriverManager.chromedriver().version(Version from runConfiguration.properties file - selenium.version).setup;`
 
 If selenium version is not stated run config file use this - latest selenium:
 
-`ChromeDriverManager.chromedriver().setup();`
+`ChromeDriverManager.chromedriver().setup;`
 
 Also use values from runConfiguration.properties file browser.width and browser.height to open browser with given size.
 

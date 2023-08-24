@@ -4,9 +4,9 @@ Html elements dependency enables us to map pages of application under test as in
 
 Take a look at following files:
 
-* htmlelements.ExtendedMyWebElement
+* htmlelements.public WebElement
 * htmlelements.ExtendedWebPage
-* htmlelements.MyWebElement
+* htmlelements.WebElement
 * htmlelements.MyPageFactory
 * htmlelements.MyPageFactoryProvider
 

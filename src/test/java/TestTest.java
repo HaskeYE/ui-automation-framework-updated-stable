@@ -5,7 +5,7 @@ public class TestTest extends BaseTest{
 
     @Test
     public void testSeventh() {
-        //webDriverFactory.get();
+        //webDriverFactory.get;
         new OpenPageSteps()
                 .openHomepage()
                 .acceptPrivacyModal()

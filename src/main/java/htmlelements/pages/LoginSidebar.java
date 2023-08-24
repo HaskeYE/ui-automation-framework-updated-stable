@@ -1,41 +1,37 @@
 package htmlelements.pages;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.Description;
-import io.qameta.htmlelements.annotation.FindBy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
-public interface LoginSidebar extends ExtendedWebPage {
+public class LoginSidebar extends ExtendedWebPage {
 
-    @Description("Initializing sign in fields")
-    @FindBy("//button[@class='btn btn-secondary qa-btn-signin   btn-sm btn-action']")
-    ExtendedMyWebElement signinInit();
+    @FindBy(xpath = "//button[@class='btn btn-secondary qa-btn-signin   btn-sm btn-action']")
+    public WebElement signinInit;
 
-    @Description("Initializing sign in fields")
-    @FindBy("//a[@href='/us/en/myaccount/create-account']")
-    ExtendedMyWebElement createAccountInit();
+    @FindBy(xpath = "//a[@href='/us/en/myaccount/create-account']")
+    public WebElement createAccountInit;
 
-    @Description("Username input")
-    @FindBy("//input[@name='username']")
-    ExtendedMyWebElement usernameInput();
+    @FindBy(xpath = "//input[@name='username']")
+    public WebElement usernameInput;
 
-    @Description("Username input")
-    @FindBy("//input[@name='password']")
-    ExtendedMyWebElement passwordInput();
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordInput;
 
-    @Description("Login button")
-    @FindBy("//button[@class='btn btn-primary qa-btn-login   btn-block']")
-    ExtendedMyWebElement loginButton();
+    @FindBy(xpath = "//button[@class='btn btn-primary qa-btn-login   btn-block']")
+    public WebElement loginButton;
 
-    @Description("Error message")
-    @FindBy("//h6[@class='alert-header alert-danger']")
-    ExtendedMyWebElement errorMessage();
+    @FindBy(xpath = "//h6[@class='alert-header alert-danger']")
+    public WebElement errorMessage;
 
-    @Description("Username greeting")
-    @FindBy("//h2[@class='modal-title']")
-    ExtendedMyWebElement userGreetings();
+    @FindBy(xpath = "//h2[@class='modal-title']")
+    public WebElement userGreetings;
 
-    @Description("Unexpected server error")
-    @FindBy("//li[@class='ember-view help-block qa-error-help-block has-error   _help-block_21ei9c']")
-    ExtendedMyWebElement serverErrorText();
+    @FindBy(xpath = "//li[@class='ember-view help-block qa-error-help-block has-error   _help-block_21ei9c']")
+    public WebElement serverErrorText;
+
+    public LoginSidebar(WebDriver driver) {
+        
+    }
 }

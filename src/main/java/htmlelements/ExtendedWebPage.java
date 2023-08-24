@@ -16,18 +16,11 @@ public abstract class ExtendedWebPage {
 
     WebDriver driver;
 
-
-
-    public ExtendedWebPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
      void isAt(Matcher<String> url) {
-        isAtPage(url);
+        isAt(url);
     }
 
-     void open(String s) {
+     public void open(String s) {
         WebDriverFactory webDriverFactory = WebDriverFactoryProvider.getInstance();
         webDriverFactory.getDriver().get(s);
     }

@@ -9,25 +9,25 @@ To make our final tests more readable we will use simplified "builder" pattern -
 In OpenPageSteps.class implementation will look something like this:
 
 ```java
-private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
+private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance;
 
 private HomePage homePage() { return pageFactory.on(HomePage.class); } // use .on method of MyPageFactoryProvider
 
 public HomePageSteps openHomepage() {
     homePage().open(/* Use homepage value from .properties file */);
-    return new HomePageSteps(); // since homepage is opened after opening page, openHomepage() will give you access to HomePageSteps }
+    return new HomePageSteps; // since homepage is opened after opening page, openHomepage() will give you access to HomePageSteps }
 ```
 
 In HomePageSteps.class you should have:
 
 ```java
-private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance();
+private static MyPageFactory pageFactory = MyPageFactoryProvider.getInstance;
 
 private HomePage homePage() { return pageFactory.on(HomePage.class); }
 
 public PrivacyModalSteps acceptPrivacyModal() {
-        homePage().privacySettingsModal().click();
-        return new PrivacyModalSteps();
+        homePage().privacySettingsModal.click();
+        return new PrivacyModalSteps;
         }
 }
 ```
@@ -36,8 +36,8 @@ Then to accept cookies and return to HomePageSteps in PrivacyModalSteps you need
 
 ```java
 public HomePageSteps acceptCookies() {
-        privacySettingsModal().acceptButton().click();
-        return new HomePageSteps();
+        privacySettingsModal().acceptButton.click();
+        return new HomePageSteps;
     }
 ```
 So `acceptPrivacyModal()` step waits for acceptPrivacyButton to be displayed and clicks it - first thing you need to do when homepage is opened - such convenient way of writing your steps is coming from html elements dependency.

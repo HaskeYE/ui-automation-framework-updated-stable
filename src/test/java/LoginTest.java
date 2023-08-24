@@ -5,6 +5,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void negativeTest() {
+
         new OpenPageSteps()
                 .openHomepage()
                 .acceptPrivacyModal()

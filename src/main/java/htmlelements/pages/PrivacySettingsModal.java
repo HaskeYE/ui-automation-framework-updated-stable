@@ -1,13 +1,17 @@
 package htmlelements.pages;
 
-import htmlelements.ExtendedMyWebElement;
 import htmlelements.ExtendedWebPage;
-import io.qameta.htmlelements.annotation.Description;
-import io.qameta.htmlelements.annotation.FindBy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public interface PrivacySettingsModal extends ExtendedWebPage {
-    @Description("Accept button")
-    @FindBy("//button[@class='btn btn-primary qa-btn-accept-cookie   " +
-            "btn-block btn-sm qa-btn-accept-cookie _btn-accept-cookie_1eoaez']")
-    ExtendedMyWebElement acceptButton();
+public class PrivacySettingsModal extends ExtendedWebPage {
+
+    @FindBy(xpath = "//button[@id='onetrust-accept-btn-handler']")
+    public WebElement acceptButton;
+
+    public PrivacySettingsModal(WebDriver driver) {
+        
+    }
 }
